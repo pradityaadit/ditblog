@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BATCH</title>
+    <link rel="icon" href="/img/p.png" type="image/x-icon" />
+    <!-- LINK KE CSS -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- BOX ICON -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--header-->
+    <header>
+      <div class="nav container">
+        <!--Nav-->
+        <!--logo-->
+        <a href="/index.html" class="logo">Pra<span>ditya Blog</span></a>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <section class="post-header">
+      <div class="header-content post-container">
+        <!-- Back To Home -->
+        <a href="/index.html" class="back-home">Back To Home</a>
+        <!-- Tittle -->
+        <h1 class="header-title">Pengertian Dan Contoh Batch System</h1>
+        <!-- Post Image -->
+        <img src="/img/batch3.png" alt="" class="header-img" />
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <section class="post-content post-container">
+      <h2 class="sub-heading">Pengertian Batch</h2>
+      <p class="post-text">
+        Batch system adalah dimana job-job yang mirip dikumpulkan dan dijalankan
+        secara kelompok kemudian setelah kelompok yang dijalankan tadi selesai
+        maka secara otomatis kelompok lain dijalankan. jadi dengan kata lain
+        adalah teknologi proses komputer dari generasi ke-2. yang jika suatu
+        tugas sedang dikerjakan pada 1 rangkaian, akan di eksekusi secara
+        berurutan. Pada komputer generasi ke-2 sistem komputer nya maasih blum
+        dilengkapi oleh sebuah sistem operasi. But, dalan beberapa fungsi sistem
+        operasi, seperti os yang tengah berkembang pada jaman sekarang ini.
+        Contohnya adlah FMS ( Fortarn Monitoring System ) dan IBSYS. Jadi bisa
+        disimpulkan, bahwa komputer generasi ke-2 ini merupakan generasi pertama
+        Sistem Operasi.
+      </p>
+      <h2 class="sub-heading">Contoh Batch</h2>
+      <p class="post-text">
+        contoh sebuah Batch System adalah sebuah e-mail dan transaksi batch
+        processing. Dalam suatu sistem batch processing, transaksi secara
+        individual dientri melalui peralatan terminal, dilakukan validasi
+        tertentu, dan ditambahkan ke transaction file yang berisi transaksi
+        lain, dan kemudian dientri ke dalam sistem secara periodik. Di waktu
+        kemudian, selama siklus pengolahan berikutnya, transaction file dapat
+        divalidasi lebih lanjut dan kemudian digunakan untuk meng-up date master
+        file yang berkaitan.
+      </p>
+      <h2 class="sub-heading">ada 2 cara dalam Batch System yaitu :</h2>
+      <p class="post-text"></p>
+      <h4>1.Resident Monitor</h4>
+      <p class="post-text">
+        Job-job yg sama cukup dicetak sekali saja, cara inilah yg disebut “Batch
+        system” Teknik pengurutan job secara manual begini akan menyebabkan
+        tingginya waktu menganggur CPU. Muncul teknik pengurutan job otomatis yg
+        mampu mentransfer secara otomatis dari suatu proses ke proses
+        lainnya.Program kecil dan bersifat residen dimemori serta berisi urutan2
+        job yg akan berpindah secara otomatis, inilah “Resident Monitor”
+      </p>
+      <p class="post-text"></p>
+      <h4>2.Overlap Operasi antara I/O dg CPU</h4>
+      <p class="post-text">
+        Off line Processing, data yg dibaca dari card reader disimpan dulu dalam
+        tape driver sebelum dibawa ke CPU, demikian pula informasi yg mau
+        dicetak, disimpan dulu di tape
+      </p>
+      <p class="post-text">
+        Spooling adalah suatu program dapat dikerjakan walaupun I/O masih
+        mengerjakan proses lainnya dan disk secara bersamaan menggunakan data
+        untuk banyak proses. Pengertian multi programming adalah kegiatan
+        menjalankan beberapa program pada memori pada satu waktu.
+      </p>
+      <h2 class="sub-heading">Multiprogramming System</h2>
+      <p class="post-text">
+        Multi programming system adalah dimana job-job disimpan di main memory
+        di waktu yang sama dan CPU dipergunakan bergantian. Hal ini membutuhkan
+        beberapa kemampuan tambahan yaitu : Penyediaan I/O routine oleh sistem,
+        Pengaturan memori untuk mengalokasikan memory pada beberapa Job,
+        penjadwalan CPU untuk memilih job mana yang akan dijalankan, serta
+        pengalokasian hardware lain.Multiprogramming berarti meletakkan lebih
+        dari sebuah program di main memory. Cara ini dilakukan dengan membagi
+        main memory menjadi beberapa partisi. Tiap partisi akan menyimpan sebuah
+        program. Foreground partitions akan berisi program dengan prioritas yang
+        lebih tinggi sedang background partitions akan berisi program dengan
+        prioritas yang lebih rendah.
+      </p>
+      <p class="post-text">
+        Meskipun setiap proses merupakan Entitiy yang berdiri sendiri, dan
+        masing-masing memiliki program Counter dan status internal, beberapa
+        proses sering kali harus berinteraksi dengan proses yang lain. Keluaran
+        dari suatu proses dapat menjadi masukan bagi proses yang lain. Jika
+        proses yang sedang menunggu masukan tidak menemukan masukan yang
+        dikehendaki, proses tersebut diblok sampai masukan tersedia.
+      </p>
+      <p class="post-text">
+        Pada saat proses diblok, secara logika proses tersebut tidak dapat
+        dilanjutkan karena menuggu masukan yang belum tersedia. Dapat terjadi
+        bahwa proses yang Ready dan dapat di-run terpaksa harus dihentikan
+        karena sistem operasi arus mengalokasikan CPU ke proses lain untuk
+        sementara waktu.
+      </p>
+      <p class="post-text">
+        Pada saat proses diblok, secara logika proses tersebut tidak dapat
+        dilanjutkan karena menuggu masukan yang belum tersedia. Dapat terjadi
+        bahwa proses yang Ready dan dapat di-run terpaksa harus dihentikan
+        karena sistem operasi arus mengalokasikan CPU ke proses lain untuk
+        sementara waktu.
+      </p>
+      <h2 class="sub-heading">Multitasking</h2>
+      <p class="post-text">
+        Multitasking adalah adalah pemrosesan beberapa tugas pada waktu yang
+        bersamaan.
+      </p>
+      <p class="post-text">
+        Cara Kerja Multitasking Dewasa ini, penggunaan time-sharing jarang
+        digunakan, dan digantikan dengan multitasking. Contoh sistem operasi
+        jenis ini antara lain adalah linux. Linux adalah sistem operasi yang
+        multitasking dan multiuser seperti kebanyakan SO yang ada pada saat ini.
+        Multitasking pada linux artinya linux bisa atau mampu menjalankan
+        beberapa proses dalam waktu yang bersamaan.
+      </p>
+      <p class="post-text">
+        Seperti contoh pada saat kita menjalan kan aplikasi web browser kita
+        juga bisa menjalankan aplikasi kompresi file. Sedangkan multiuser pada
+        linux adalah user bisa login ke dalam sistem secara bersamaan, dengan
+        artinya user bisa menggunakan satu sistem secara bersamaan dalam satu
+        waktu. Multitasking dan multiuser pada sistem operasi merupakan satu
+        keharusan dalam masa ini.
+      </p>
+    </section>
+
+    <!-- Share -->
+    <div class="share post-container">
+      <span class="share-title"><a href="#">Go Up</a></span>
+      <a
+        href="https://hartantydwikurnia.wordpress.com/2018/11/05/batch-system-dan-contohnya/"
+        >!Sumber Link!</a
+      >
+    </div>
+
+    <!-- Footer -->
+    <div class="footer container">
+      <p>Copyright &copy;2023 By Praditya Blog All Right Reversed</p>
+      <div class="social">
+        <a href="#"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/prdty.aditt/"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/praditya-adit-7a4527290/"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <a href="https://github.com/pradityaadit"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </div>
+    </div>
+    <!-- JQUERY -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- LINK KE JS -->
+    <script src="/main.js "></script>
+  </body>
+</html>

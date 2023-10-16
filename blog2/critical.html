@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRITICAL SECTION</title>
+    <link rel="icon" href="/img/p.png" type="image/x-icon" />
+    <!-- LINK KE CSS -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- BOX ICON -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--header-->
+    <header>
+      <div class="nav container">
+        <!--Nav-->
+        <!--logo-->
+        <a href="/index.html" class="logo">Pra<span>ditya Blog</span></a>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <section class="post-header">
+      <div class="header-content post-container">
+        <!-- Back To Home -->
+        <a href="/index.html" class="back-home">Back To Home</a>
+        <!-- Tittle -->
+        <h1 class="header-title">Critical System Dan Contohnya</h1>
+        <!-- Post Image -->
+        <img src="/img/Critical2.png" alt="" class="header-img" />
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <section class="post-content post-container">
+      <h2 class="sub-heading">Pengertian Critical System</h2>
+      <p class="post-text">
+        Critical Section adalah bagian dari suatu proses yang akan melakukan
+        akses dan manipulasi data. Ketika sebuah proses sedang dijalankan dalam
+        critical section nya, tidak ada proses lain yang boleh dijalankan dalam
+        critical section tersebut, karena akan menyebabkan keadaanmutually
+        exclusive.
+      </p>
+      <p class="post-text">
+        Mutually exclusive yakni keadaan terjadinya akses resources yang sama di
+        saat yang bersamaan. Mutually exclusive memerlukan kondisi tertentu agar
+        dapat terpenuhi.
+      </p>
+      <p class="post-text">
+        Critical section biasanya digunakan saat program multithreading, dimana
+        program tersebut terdiri dari banyak thread, akan mengubah nilai dari
+        variabel. Dalam hal ini critical sectiondiperlukan untuk melindungi
+        variabel dari concurrent access (pengaksesan program di saat yang
+        bersamaan) yang dapat membuat nilai dari variabel tersebut menjadi tidak
+        konsisten.
+      </p>
+      <p class="post-text">
+        Seperti yang telah kita ketahui bahwa proses dapat bekerja sendiri
+        (independent process) dan juga dapat bekerja bersama proses-proses yang
+        lain (cooperating process). Pada umumnya ketika proses saling
+        bekerjasama (cooperating process) maka proses-proses tersebut akan
+        saling berbagi data. Pada saat proses-proses berbagi data, ada
+        kemungkinan bahwa data yang dibagi secara bersama itu akan menjadi tidak
+        konsisten dikarenakan
+      </p>
+      <p class="post-text">
+        adanya kemungkinan proses-proses tersebut melakukan akses secara
+        bersamaan yang menyebabkan data tersebut berubah, hal ini dikenal dengan
+        istilah Race Condition.
+      </p>
+      <p class="post-text">
+        Oleh karena itu, dibutuhkan solusi yang tepat untuk menghindari
+        munculnya Race Condition. Solusi tersebut harus memenuhi ketiga syarat
+        berikut:
+      </p>
+      <pre>
+    1.  Mutual Exclusion
+    2.  Progress
+    3.  Bounded Waiting
+     </pre
+      >
+      <p class="post-text">
+        Ada dua jenis solusi untuk memecahkan masalah critical section, yaitu.
+      </p>
+      <p class="post-text2">
+        -- : Solusi Perangkat Lunak. Solusi ini menggunakan algoritma-algoritma
+        untuk mengatasi masalah critical section.
+      </p>
+      <p class="post-text2">
+        -- : Solusi Perangkat Keras. Solusi ini tergantung pada beberapa
+        instruksi mesin tertentu, misalnya dengan me-non-aktifkan interupsi,
+        mengunci suatu variabel tertentu atau menggunakan instruksi level mesin
+        seperti tes dan set.
+      </p>
+      <p class="post-text">
+        Berikut ini algoritma-algoritma yang digunakan untuk mengatasi masalah
+        critical section:
+      </p>
+      <h2 class="sub-heading">Algoritma I</h2>
+      <p class="post-text">
+        Algoritma I memberikan giliran kepada setiap proses untuk memproses
+        critical section-nya secara bergantian.
+      </p>
+      <p class="post-text">
+        Asumsi yang digunakan disini setiap proses secara bergantian memasuki
+        critical section-nya.
+      </p>
+      <p class="post-text">
+        Statement while(turn != 4) akan memeriksa apakah pada saat itu proses 4
+        mendapatkan turn, jika tidak maka proses 4 akan busy waiting(lihat
+        kembali bahwa printah while diakhiri dengan “;”). Jika ternyata pada
+        saat itu merupakan giliran proses 4 maka proses 4 akan mengerjakan
+        critical section-nya. Sampai sini jelas terlihat bahwa mutex terpenuhi!
+        Proses yang tidak mendapatkan turn tidak akan dapat mengerjakan critical
+        section-nya dan turn hanya akan diberikan pada satu proses saja.
+      </p>
+      <p class="post-text">
+        Setelah proses 4 selesai mengerjakan critical section maka turn
+        diberikan pada proses lainnya (turn= j, j merupakan proses selanjutnya
+        yang dapat mengerjakan critical section). Setelah turn-nya diberikan
+        kepada proses lain, proses 4 akan mengerjakan remainder section. Disini
+        jelas terlihat bahwa syarat bounded waiting jelas terpenuhi. Ingat
+        asumsi yang digunakan dalam algoritma ini adalah setiap proses secar
+        bergantian memasuki critical section-nya, jika pada saat itu proses 4
+        ternyata belum mau mengerjakan critical section-nya maka proses ke-j
+        tidak akan mendapatkan kesempatan untuk mengerjakan critical section
+        walau saat itu sebenarnya proses ke-j akan memasuki critical section.
+        Artinya syarat progress tidak terpenuhi pada algoritma ini.
+      </p>
+      <h2 class="sub-heading">Algoritma II</h2>
+      <p class="post-text">
+        Masalah yang terjadi pada algoritma 1 ialah ketika di entry section
+        terdapat sebuah proses yang ingin masuk ke critical section, sementara
+        di critical section sendiri tidak ada proses yang sedang berjalan,
+        tetapi proses yang ada di entry section tadi tidak bisa masuk ke
+        critical section. Hal ini terjadi karena giliran untuk memasuki critical
+        section adalah giliran proses yg lain sementara proses tersebut masih
+        berada di remainder section. Untuk mengatasi masalah ini maka dapat
+        diatasi dengan merubah variabel trun pada algoritma pertama dengan array
+      </p>
+      <p class="post-text">Boolean flag [2];</p>
+      <p class="post-text">
+        Elemen array diinisialisasi false. Jika flag[i] true, nilai tersebut
+        menandakan bahwa Pi ready untuk memasuki critical section. Pada
+        algoritma ini. hal pertama yang dilakukan ialah mengeset proses Pi
+        dengan nilai True, ini menandakan bahwa Pi ready untuk masuk ke critical
+        section. kemudian, Pi memeriksa apakah Pj
+      </p>
+      <p class="post-text">
+        tidak ready untuk memasukui critical section. Jika Pj ready, maka Pi
+        menunggu sampai Pj keluar dari critical section (flag[j] bernilai
+        false). Ketika keluar dari critcal section, Pi harus merubah nilai
+        flag[i] menjadi false agar prores lain dapat memasuki critical section.
+      </p>
+      <h2 class="sub-heading">Contoh Critical Section :</h2>
+      <p class="post-text">
+        Pada algoritma ini, kriteria Mutual-exclusion terpenuhi, tetapi tidak
+        memenuhi kriteria
+      </p>
+      <p class="post-text">progress. Ilustrasinya seperti di bawah ini.</p>
+      <p class="post-text">T0 : Po set flag [0] = true</p>
+      <p class="post-text">T1 : Po set flag [1] = true</p>
+      <p class="post-text">
+        Dari ilustrasi diatas terlihat bahwa algoritma ini memungkinkan
+        terjadinya nilai true untuk kedua proses, akibatnya tidak ada proses
+        yang akan berhasil memasuki critical section.
+      </p>
+      <p class="post-text">
+        Jadi untuk algoritma 2 masih terdapat kelemahan, seperti yang terjadi di
+        atas.
+      </p>
+      <h2 class="sub-heading">Algoritma III</h2>
+      <p class="post-text">
+        Idenya berasal dari algoritma 1 dan 2. Algoritma 3 mengatasi kelemahan
+        pada algoritma 1 dan 2 sehingga progres yang diperlukan untuk mengatasi
+        critical section terpenuhi.
+      </p>
+      <p class="post-text">
+        Algoritma III ditemukan oleh G.L. Petterson pada tahun 1981 dan dikenal
+        juga sebagai Algoritma Petterson. Petterson menemukan cara yang
+        sederhana untuk mengatur proses agar memenuhi mutual exclusion.
+        Algoritma ini adalah solusi untuk memecahkan masalahcritical section
+        pada dua proses. Ide dari algoritma ini adalah menggabungkan variabel
+        yang di- sharing pada Algoritma I dan Algoritma II, yaitu variabel turn
+        dan variabel flag. Sama seperti pada Algoritma I dan II, variabel turn
+        menunjukkan giliran proses mana yang diperbolehkan memasuki critical
+        section dan variabel flag menunjukkan apakah suatu proses membutuhkan
+        akses ke critical section atau tidak.
+      </p>
+      <p class="post-text">
+        Awalnya flag untuk kedua proses diinisialisai bernilai false, yang
+        artinya kedua proses tersebut tidak membutuhkan akses ke critical
+        section. Kemudian jika suatu proses ingin memasuki critical section, ia
+        akan mengubah flag-nya menjadi true (memberikan tanda bahwa ia butuh
+        critical section) lalu proses tersebut memberikan turn kepada lawannya.
+        Jika lawannya tidak menginginkan critical section (flag-nya false), maka
+        proses tersebut dapat menggunakan critical section, dan setelah selesai
+        menggunakan critical section ia akan mengubah flag-nya menjadi false.
+        Tetapi apabila proses lawannya juga menginginkan critical section maka
+        proses lawan-lah yang dapat memasuki critical section, dan proses
+        tersebut harus menunggu sampai proses lawan menyelesaikan critical
+        section dan mengubah flag-nya menjadi false.
+      </p>
+      <p class="post-text">
+        Misalkan ketika P0 membutuhkan critical section, maka P0 akan mengubah
+        flag[0] = true, lalu P0 mengubah turn= 1. Jika P1 mempunyai flag[1] =
+        false, (berapapun nilai turn) maka P0 yang dapat mengakses critical
+        section. Namun apabila P1 juga membutuhkan critical section, karena
+        flag[1] = true dan turn= 1, maka P1 yang dapat memasuki critical section
+        dan P0 harus menunggu sampai P1 menyelesaikan critical section dan
+        mengubah flag[1] = false, setelah itu barulah P0 dapat mengakses
+        critical section.
+      </p>
+      <p class="post-text">
+        Bagaimana bila kedua proses membutuhkan critical section secara
+        bersamaan? Proses mana yang dapat mengakses critical section terlebih
+        dahulu? Apabila kedua proses (P0 dan P1) datang bersamaan, kedua proses
+        akan menset masing-masing flag menjadi true (flag[0] =true dan flag[1] =
+        true), dalam kondisi ini P0 dapat mengubah turn = 1 dan P1 juga dapat
+        mengubah turn = 0. Proses yang dapat mengakses critical section terlebih
+        dahulu adalah proses yang terlebih dahulu mengubah turn menjadi turn
+        lawannya. Misalkan P0 terlebih dahulu mengubah turn= 1, lalu P1 akan
+        mengubah turn= 0, karena turn yang terakhir adalah 0 maka P0-lah yang
+        dapat mengakses critical section terlebih dahulu dan P1 harus menunggu.
+      </p>
+      <p class="post-text">
+        Algoritma III memenuhi ketiga syarat yang dibutuhkan. Syarat progress
+        dan bounded waitingyang tidak dipenuhi pada Algoritma I dan II dapat
+        dipenuhi oleh algoritma ini karena ketika ada proses yang ingin
+        mengakses critical section dan tidak ada yang menggunakan critical
+        section maka dapat dipastikan ada proses yang bisa menggunakan critical
+        section, dan proses tidak perlu menunggu selamanya untuk dapat masuk ke
+        critical section.
+      </p>
+      <h2 class="sub-heading">Algoritma Tukang Roti</h2>
+      <p class="post-text">
+        Algoritma ini didasarkan pada algoritma penjadwalan yang biasanya
+        digunakan oleh tukang roti, dimana urutan pelayanan ditentukan dalam
+        situasi yang sangat sibuk. Algoritma ini dapat digunakan untuk
+        memecahkan masalah critical section untuk n buah proses, yang
+        diilustrasikan dengan n buah pelanggan. Ketika memasuki toko, setiap
+        pelanggan menerima
+      </p>
+      <p class="post-text">
+        sebuah nomor. Sayangnya, algoritma tukang roti ini tidak dapat menjamin
+        bahwa dua proses (dua pelanggan) tidak akan menerima nomor yang sama.
+        Dalam kasus di mana dua proses menerima nomor yang sama, maka proses
+        dengan nomor ID terkecil yang akan dilayani dahulu. Jadi, jika Pi dan Pj
+        menerima nomor yang sama dan i < j, maka Pi dilayani dahulu. Karena
+        setiap nama proses adalah unik dan berurut, maka algoritma ini dapat
+        digunakan untuk memecahkan masalah critical section untuk n buah proses.
+      </p>
+      <p class="post-text">Struktur data umum algoritma ini adalah</p>
+      <p class="post-text">boolean choosing[n];</p>
+      <p class="post-text">int number [n];</p>
+      <p class="post-text">
+        Awalnya, struktur data ini diinisialisasi masing-masing ke false dan 0,
+        dan menggunakan notasi berikut:
+      </p>
+      <p class="post-text">
+        – (a, b) < (c, d) jika a < c atau jika a= c dan b = ai untuk setiap i=
+        0, …, n – 1
+      </p>
+      <p class="post-text">
+        Dengan demikian, diketahui bahwa Algoritma I dan II terbukti tidak dapat
+        memecahkan masalah critical section untuk dua proses karena tidak
+        memenuhi syarat progress dan bounded waiting. Algoritma yang dapat
+        menyelesaikan masalah critical section pada dua proses adalah Algoritma
+        III. Sedangkan untuk masalah critical section pada n-buah proses dapat
+        diselesaikan dengan menggunakan Algoritma Tukang Roti.
+      </p>
+      <p class="post-text">Penjadwalan CPU</p>
+      <p class="post-text">
+        Penjadwalan CPU adalah suatu proses pengaturan atau penjadwalan
+        proses-proses yang ada di dalam komputer. Dimana proses-proses tersebut
+        berjalan dalam pola yang disebut Siklus Burst.
+      </p>
+      <p class="post-text">
+        Penjadwalan sangat penting dalam menentukan performance sebuah komputer
+        karena mengatur alokasi resource dari CPU untuk menjalankan
+        proses-proses di dalam komputer. Penjadwalan CPU merupakan suatu konsep
+        dasar dari multiprograming, karena dengan adanya penjadwalan dari CPU
+        itu sendiri maka proses-proses tersebut akan mendapatkan alokasi
+        resource dari CPU.
+      </p>
+      <p class="post-text">
+        Penjadwalan CPU mungkin akan dijalankan ketika proses dalam keadaan:
+      </p>
+      <pre>
+      1.  Berubah dari running ke waiting state.
+      2.  Berubah dari running ke ready state.tu, 
+      3.  Berubah dari waiting ke ready state. 
+      4.  Dihentikan.
+        </pre
+      >
+      <p class="post-text">
+        Penjadwalan nomor 1 dan 4 bersifat Non Preemptive sedangkan lainnya
+        Preemptive.
+      </p>
+      <p class="post-text">
+        Penjadwalan yang biasa digunakan sistem operasi dewasa ini biasanya
+        bersifat Preemptive. Bahkan beberapa penjadwalan sistem operasi,
+        contohnya Linux 2.6, mempunyai kemampuan Preemptive terhadap system
+        call-nya ( preemptible kernel).
+      </p>
+      <p class="post-text">
+        Penjadwalan CPU secara garis besar dibagi menjadi 2, yaitu Penjadwalan
+        Preemptive dan Penjadwalan Non Preemptive.
+      </p>
+      <h2 class="sub-heading">Penjadwalan Pre-emptive</h2>
+      <p class="post-text">
+        Penjadwalan Preemptive mempunyai arti kemampuan sistem operasi untuk
+        memberhentikan sementara proses yang sedang berjalan untuk memberi ruang
+        kepada proses yang prioritasnya lebih tinggi. Penjadwalan ini bisa saja
+        termasuk penjadwalan proses atau I/O.
+      </p>
+      <p class="post-text">
+        Dengan kata lain, penjadwalan Preemptive melibatkan mekanisme interupsi
+        yang menyela proses yang sedang berjalan dan memaksa sistem untuk
+        menentukan proses mana yang akan dieksekusi selanjutnya.
+      </p>
+      <p class="post-text">
+        Penjadwalan Preemptive memungkinkan sistem untuk lebih bisa menjamin
+        bahwa setiap proses mendapat sebuah slice waktu operasi. Dan juga
+        membuat sistem lebih cepat merespon terhadap event dari luar (contohnya
+        seperti ada data yang masuk) yang membutuhkan reaksi cepat dari satu
+        atau beberapa proses.
+      </p>
+      <p class="post-text">
+        Lama waktu suatu proses diizinkan untuk dieksekusi dalam penjadwalan
+        Preemptive disebuttime slice/quantum.
+      </p>
+      <p class="post-text">
+        Penjadwalan berjalan setiap satu satuan time slice untuk memilih proses
+        mana yang akan berjalan selanjutnya. Bila time slice terlalu pendek maka
+        penjadwal akan memakan terlalu banyak waktu proses, tetapi bila time
+        slice terlau lama maka memungkinkan proses untuk tidak dapat merespon
+        terhadap event dari luar secepat yang diharapkan.
+      </p>
+      <p class="post-text">
+        Dalam waktu-waktu tertentu, proses dapat dikelompokkan ke dalam dua
+        kategori: proses yang memiliki Burst I/O yang sangat lama disebut I/O
+        Bound, dan proses yang memiliki BurstCPU yang sangat lama disebut CPU
+        Bound. Terkadang juga suatu sistem mengalami kondisi yang disebut
+        busywait, yaitu saat dimana sistem menunggu request input(seperti
+        disk,keyboard, atau jaringan). Saat busywait tersebut, proses tidak
+        melakukan sesuatu yang produktif, tetapi tetap memakan resource dari
+        CPU. Dengan penjadwalan Preemptive, hal tersebut dapat dihindari.
+      </p>
+      <p class="post-text">Keuntungan penggunaan penjadwalan pre-emptive:</p>
+      <p class="post-text2">
+        --: sistem lebih responsif daripada sistem yang memakai penjadwalan Non
+        Preemptive.
+      </p>
+      <p class="post-text2">--: Sistem terhindar dari keadaan busywait.</p>
+      <p class="post-text">
+        contoh sistem operasi yang menerapkan penjadwalan Preemptive:
+      </p>
+      <p class="post-text">
+        Windows 95, Windows XP, Linux, Unix, AmigaOS, MacOS X, dan Windows NT .
+      </p>
+      <h2 class="sub-heading">Penjadwalan Non Pre-emptive</h2>
+      <p class="post-text">
+        Penjadwalan Non Preemptive ialah salah satu jenis penjadwalan dimana
+        sistem operasi tidak pernah melakukan context switch dari proses yang
+        sedang berjalan ke proses yang lain. Dengan kata lain, proses yang
+        sedang berjalan tidak bisa di- interupt.
+      </p>
+      <p class="post-text">
+        Penjadwalan Non Preemptive terjadi ketika proses hanya:
+      </p>
+      <p class="post-text2">
+        --: Berjalan dari running state sampai waiting state.
+      </p>
+      <p class="post-text2">--: DiHentikan</p>
+      <p class="post-text">
+        Ini berarti CPU menjaga proses sampai proses itu pindah ke waiting state
+        ataupun dihentikan (proses tidak diganggu). Metode ini digunakan oleh
+        Microsoft Windows 3.1 dan Macintosh. Ini adalah metode yang dapat
+        digunakan untuk platforms hardware tertentu, karena tidak memerlukan
+        perangkat keras khusus (misalnya timer yang digunakan untuk meng
+        interuptpada metode penjadwalan Preemptive).
+      </p>
+      <h2 class="sub-heading">Dispatcher</h2>
+      <p class="post-text">
+        Komponen yang lain yang terlibat dalam penjadwalan CPU adalah
+        dispatcher.
+      </p>
+      <p class="post-text">
+        Dispatcher adalah modul yang memberikan kontrol CPU kepada proses yang
+        sedang terjadwal. Fungsinya:
+      </p>
+      <p class="post-text2">1. Context switching</p>
+      <p class="post-text">
+        Mengganti state dari suatu proses dan mengembalikannya untuk menghindari
+        monopoli CPU time. Context switching dilakukan untuk menangani suatu
+        interrupt(misalnya menunggu waktu I/O). Untuk menyimpan state dari
+        proses-proses yang terjadwal sebuah Process Control Blockharus dibuat
+        untuk mengingat proses-proses yang sedang diatur scheduler. Selain
+        statesuatu proses, PCB juga menyimpan process ID, program counter(posisi
+        saat ini pada program), prioritas proses dan data-data tambahan lainnya.
+      </p>
+      <p class="post-text2">1.Switching to user mode dari kernel mode.</p>
+      <p class="post-text2">
+        2.Lompat dari suatu bagian di progam user untuk mengulang program.
+      </p>
+    </section>
+
+    <!-- Share -->
+    <div class="share post-container">
+      <span class="share-title"><a href="#">Go Up</a></span>
+      <a
+        href="https://hartantydwikurnia.wordpress.com/2018/11/05/critical-section-dan-contohnya/"
+        >!Sumber Link!</a
+      >
+    </div>
+
+    <!-- Footer -->
+    <div class="footer container">
+      <p>Copyright &copy;2023 By Praditya Blog All Right Reversed</p>
+      <div class="social">
+        <a href="#"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/prdty.aditt/"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/praditya-adit-7a4527290/"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <a href="https://github.com/pradityaadit"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </div>
+    </div>
+    <!-- JQUERY -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- LINK KE JS -->
+    <script src="/main.js "></script>
+  </body>
+</html>

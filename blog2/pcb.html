@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proses Control Block</title>
+    <link rel="icon" href="/img/p.png" type="image/x-icon" />
+    <!-- LINK KE CSS -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- BOX ICON -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--header-->
+    <header>
+      <div class="nav container">
+        <!--Nav-->
+        <!--logo-->
+        <a href="/index.html" class="logo">Pra<span>ditya Blog</span></a>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <section class="post-header">
+      <div class="header-content post-container">
+        <!-- Back To Home -->
+        <a href="/index.html" class="back-home">Back To Home</a>
+        <!-- Tittle -->
+        <h1 class="header-title">Pengertian Dan Contoh PCB</h1>
+        <!-- Post Image -->
+        <img src="/img/pcb1.png" alt="" class="header-img" />
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <section class="post-content post-container">
+      <h2 class="sub-heading">Pengertian Proces Control Block</h2>
+      <p class="post-text">
+        Setiap proses yang ada di dalam sistem operasi memperoleh sebuah PCB
+        atau Process Control Block, PCB ini di dalamnya berisi informasi seputar
+        proses tersebut yakni berupa sebuah tanda pengenal atau ID Process yang
+        nantinya akan digunakan sebagai nomor identitas, prioritas eksekusi,
+        status proses, serta tentang informasi tentang lokasi dari proses di
+        dalam sebuah memori.
+      </p>
+      <p class="post-text">
+        Sementara itu, Process Control Block merupakan berbagai informasi lain
+        yang diperlukan sistem operasi untuk mengontrol dan berkoordinasi dengan
+        berbagai proses yang aktif.
+      </p>
+      <p class="post-text">
+        Hampir seluruh sistem operasi modern seperti yang Anda gunakan sekarang
+        sudah memilki Process Control Block. Akan tetapi, strukturnya masih
+        berbeda-beda di setiap sistem operasi tersebut. Maka dari itu, PCB
+        memiliki sifat unik karena antara sistem operasi yang satu dengan yang
+        lainnya berbeda.
+      </p>
+      <p class="post-text">
+        Adapun prioritas proses adalah sebuah besaran atau nilai yang memberikan
+        informasi mengenai seberapa sering proses tersebut dijalankan prosesor.
+        Proses yang mempunyai prioritas tinggi nanti dijalankan lebih sering
+        serta dieksekusi terlebih dahulu jika dibandingkan dengan proses yang
+        memiliki prioritas lebih rendah.
+      </p>
+      <p class="post-text">
+        Setiap proses yang ada di dalam sistem operasi akan digambarkan oleh
+        Process Control Block. Di dalam PCB terdapat banyak informasi yang
+        saling berhubungan dengan proses yang lebih spesifik.
+      </p>
+      <p class="post-text">
+        Process Control Block hanya bertugas untuk menyimpan informasi yang mana
+        antara proses satu dengan proses lainnya akan bervariasi. Salah satu
+        contoh struktur data yang mengontrol beberapa Process Control Block
+        misalnya process table.
+      </p>
+      <h2 class="sub-heading">Elemen-elemen di Dalam Process Control Block</h2>
+      <p class="post-text">
+        Di bawah ini merupakan elemen-elemen yang terdapat pada PCB Running:
+      </p>
+      <table style="width: 100%">
+        <tr>
+          <th>Elemen</th>
+          <th>Pengertian</th>
+        </tr>
+        <tr>
+          <td>Identifier</td>
+          <td>
+            Identitas unik untuk membedakan suatu proses dengan proses lainnya.
+          </td>
+        </tr>
+        <tr>
+          <td>State</td>
+          <td>
+            Status (kondisi) suatu proses (sedang dieksekusi, sedang diblok,
+            dll).
+          </td>
+        </tr>
+        <tr>
+          <td>Priority</td>
+          <td>
+            status dari proses yang sedang dieksekusi, diblok, dan lain-lain
+            priority Program counter: alamat berikutnya akan dieksekusi
+          </td>
+        </tr>
+        <tr>
+          <td>Program counter</td>
+          <td>alamat berikutnya akan dieksekusi</td>
+        </tr>
+        <tr>
+          <td>Memory pointers</td>
+          <td>
+            pointer yang nantinya akan menunjukkan alamat memori data dan kode
+            yang saling berhubungan dengan blok dan memori yang dibagikan dengan
+            proses yang lainnya (jika ada)
+          </td>
+        </tr>
+        <tr>
+          <td>Context data</td>
+          <td>
+            Data yang ada di dalam register prosesor pada saat proses akan
+            diseksekusi
+          </td>
+        </tr>
+        <tr>
+          <td>I/O status information</td>
+          <td>
+            informasi yang berkaitan dengan permintaan mengenai I/O device yang
+            masih belum terpenuhi (misalnya akses ke harddisk), apa saja daftar
+            file yang digunakan oleh proses, dan lain sebagainya
+          </td>
+        </tr>
+        <tr>
+          <td>Accounting information</td>
+          <td>
+            informasi seputar total waktu proses yang sudah digunakan, batas
+            waktu proses, nomor urutan, dan lain sebagainya
+          </td>
+        </tr>
+      </table>
+      <p class="post-text"></p>
+      <h2 class="sub-heading">Pembagian Process Control Block</h2>
+      <p class="post-text">
+        Process Control Block dibagi menjadi tiga kelompok, yaitu:
+      </p>
+      <p class="post-text2">
+        1. rocess identification data: proses yang menyertakan identifier pada
+        prosesnya
+      </p>
+      <p class="post-text2">
+        2. Process state data: potongan-potongan informasi yang isinya
+        menjelaskan status proses yang ditangguhkan, memungkinkan sistem operasi
+        melakukan restart serta masih bisa mengeksekusinya dengan benar
+      </p>
+      <p class="post-text2">
+        3. Process control data: digunakan sistem operasi yang akan mengelola
+        proses itu sendiri
+      </p>
+    </section>
+
+    <!-- Share -->
+    <div class="share post-container">
+      <span class="share-title"><a href="#">Go Up</a></span>
+      <a
+        href="https://www.nesabamedia.com/process-control-block/#:~:text=Sementara%20itu%2C%20Process%20Control%20Block,sudah%20memilki%20Process%20Control%20Block."
+        >!Sumber Link!</a
+      >
+    </div>
+
+    <!-- Footer -->
+    <div class="footer container">
+      <p>Copyright &copy;2023 By Praditya Blog All Right Reversed</p>
+      <div class="social">
+        <a href="#"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/prdty.aditt/"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/praditya-adit-7a4527290/"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <a href="https://github.com/pradityaadit"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </div>
+    </div>
+    <!-- JQUERY -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- LINK KE JS -->
+    <script src="/main.js "></script>
+  </body>
+</html>

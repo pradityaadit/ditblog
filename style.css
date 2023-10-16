@@ -95,7 +95,7 @@ header.shadow .logo {
 .home {
   width: 100%;
   min-height: 400px;
-  background-image: url(img/home.png);
+  background: #2e3134;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -257,6 +257,12 @@ header.shadow .logo {
   transition: 0.3s all linear;
 }
 
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
 /* Post Content */
 .post-header {
   width: 100%;
@@ -314,7 +320,19 @@ header.shadow .logo {
 .sub-heading {
   font-size: 1.2rem;
 }
+.bebas {
+  font-size: 1rem;
+  line-height: 1.7rem;
+  margin: 1rem 0;
+  text-align: justify;
+}
 
+.post-text2 {
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 1rem;
+  text-align: justify;
+}
 .post-text {
   font-size: 1rem;
   line-height: 1.7rem;
@@ -354,7 +372,14 @@ header.shadow .logo {
     width: 100%;
   }
 
+  .bebas {
+    margin: 1rem;
+  }
   .post-text {
+    margin: 1rem;
+  }
+
+  .post-text2 {
     margin: 1rem;
   }
 
@@ -403,8 +428,17 @@ header.shadow .logo {
   .post-content {
     margin-top: 9rem !important;
   }
+  .bebas {
+    margin: 1rem;
+  }
+  .bebas {
+    margin: 1rem;
+  }
 
   .post-text {
+    margin: 1rem;
+  }
+  .post-text2 {
     margin: 1rem;
   }
 
@@ -427,7 +461,13 @@ header.shadow .logo {
   h4 {
     margin: 1rem;
   }
+  .bebas {
+    margin: 1rem;
+  }
   .post-text {
+    margin: 1rem;
+  }
+  .post-text2 {
     margin: 1rem;
   }
 
@@ -487,7 +527,13 @@ header.shadow .logo {
     margin-top: 5rem !important;
   }
 
+  .bebas {
+    margin: 1rem;
+  }
   .post-text {
+    margin: 1rem;
+  }
+  .post-text2 {
     margin: 1rem;
   }
 
